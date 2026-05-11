@@ -6,7 +6,7 @@
 /*   By: abouzkra <abouzkra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 11:41:47 by abouzkra          #+#    #+#             */
-/*   Updated: 2026/05/11 11:50:07 by abouzkra         ###   ########.fr       */
+/*   Updated: 2026/05/11 14:19:20 by abouzkra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ int	main(void)
 		pop(q, &top);
 		print_task(&top);
 	}
+	destroy_heap(q);
 	return (0);
 }
