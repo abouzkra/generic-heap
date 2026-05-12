@@ -6,7 +6,7 @@
 /*   By: abouzkra <abouzkra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 16:09:45 by abouzkra          #+#    #+#             */
-/*   Updated: 2026/05/11 11:33:17 by abouzkra         ###   ########.fr       */
+/*   Updated: 2026/05/12 11:31:34 by abouzkra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ int	main(void)
 	char *arr[5] = {"test", "hello", "Hello", "string", "adnan"};
 
 	t_heap *q = heapify(arr, 5, sizeof(char *), str_cmp);
-	pretty_print_q(q, 0, 0, "", print_str);
+	pretty_print_heap(q, 0, 0, "", print_str);
 
 	char* top;
-	while (q->count)
+	while (get_heap_count(q))
 	{
 		pop(q, &top);
 		print_str(&top);

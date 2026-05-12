@@ -6,12 +6,22 @@
 /*   By: abouzkra <abouzkra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 16:09:42 by abouzkra          #+#    #+#             */
-/*   Updated: 2026/05/11 10:10:55 by abouzkra         ###   ########.fr       */
+/*   Updated: 2026/05/12 11:29:57 by abouzkra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/heap.h"
 #include "utils.h"
+
+struct s_heap
+{
+	void	*data;
+	size_t	cap;
+	size_t	count;
+	size_t	width;
+	int		(*cmp)(void *el1, void *el2);
+	char	*swap;
+};
 
 static void	*get_node(t_heap *q, size_t i)
 {
@@ -145,6 +155,11 @@ void	insert(t_heap *q, void *data)
 	sift_up(q, q->count - 1);
 }
 
+size_t	get_heap_count(t_heap *q)
+{
+	return (q->count);
+}
+
 void	pop(t_heap *q, void *dest)
 {
 	if (q->count == 0)
@@ -175,7 +190,7 @@ void	destroy_heap(t_heap *q)
 	free(q);
 }
 
-void	pretty_print_q(
+void	pretty_print_heap(
 	t_heap *q, size_t idx, size_t depth,
 	char *prefix,
 	void (*print_data)(void *data))
@@ -191,6 +206,6 @@ void	pretty_print_q(
 		ft_putstr("└──── ");
 	print_data((char *)q->data + idx * q->width);
 	prepare_prefix(prefix, new_prefix, idx % 2 == 1);
-	pretty_print_q(q, idx * 2 + 1, depth + 1, new_prefix, print_data);
-	pretty_print_q(q, idx * 2 + 2, depth + 1, new_prefix, print_data);
+	pretty_print_heap(q, idx * 2 + 1, depth + 1, new_prefix, print_data);
+	pretty_print_heap(q, idx * 2 + 2, depth + 1, new_prefix, print_data);
 }

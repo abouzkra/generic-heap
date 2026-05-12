@@ -6,7 +6,7 @@
 /*   By: abouzkra <abouzkra@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 11:41:47 by abouzkra          #+#    #+#             */
-/*   Updated: 2026/05/11 14:19:20 by abouzkra         ###   ########.fr       */
+/*   Updated: 2026/05/12 11:32:22 by abouzkra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ int	main(void)
 	};
 
 	t_heap	*q = heapify(arr, 5, sizeof(t_task), task_cmp);
-	pretty_print_q(q, 0, 0, "", print_task);
+	pretty_print_heap(q, 0, 0, "", print_task);
 
 	printf("\n");
 	t_task	top;
-	while (q->count)
+	while (get_heap_count(q))
 	{
 		pop(q, &top);
 		print_task(&top);
