@@ -70,6 +70,67 @@ So that `pretty_print_heap` correctly prints the heap, the `print_data` function
 - **Signature**: it should respect this signature `void print_data(void *data)`
 - **Formatting**: the user can print data as they whish except that the printed string should end with a new line `\n`.
 
+# Usage Example
+
+```C
+#include "../includes/heap.h"
+#include <time.h>
+
+int	nb_cmp(void *x, void *y)
+{
+	return (*(int *)x - *(int *)y);
+}
+
+void	print_nb(void *x)
+{
+	printf("%d\n", *(int *)x);
+}
+
+int	main(void)
+{
+	srand(time(NULL));
+	int	arr[10];
+
+	for (int i=0; i < 10; i++)
+		arr[i] = (rand() % 21) - 10;
+
+	t_heap *q = heapify(arr, 10, sizeof(int), nb_cmp);
+	pretty_print_heap(q, 0, 0, "", print_nb);
+
+	int top;
+	while (get_heap_count(q))
+	{
+		pop(q, &top);
+		print_nb(&top);
+	}
+	destroy_heap(q);
+	return (0);
+}
+```
+Output
+```
+9
+  ├──── 7
+  | ├──── 4
+  | | ├──── -4
+  | | └──── -4
+  | └──── 3
+  |   ├──── 0
+  └──── 6
+    ├──── -4
+    └──── -5
+9
+7
+6
+4
+3
+0
+-4
+-4
+-4
+-5
+```
+
 ## Improvements
 - []**Dynamic Resizing**
 - []**Thread Safety**
