@@ -19,7 +19,7 @@ This is lightweight generic heap library in C providing a flexible implementatio
 ### Features
 - **Generic**: As long as the user provides correct input about the data they want to use it should work with any data type (primitive types, pointers, structures...).
 - **Flexible**: Easily swith between Max and Min heap by just flipping the comparison function.
-- **Visual**: To see the results in action, `pretty_print_q` is a built-in function that provides a heap visualization.
+- **Visual**: To see the results in action, `pretty_print_heap` is a built-in function that provides a heap visualization.
 - **Opaque**: `s_heap` structure's internal state is encapsulated to prevent the user from shooting themselves in the foot by messing with the `s_heap` structure's internal state.
 
 # Instuctions
@@ -63,7 +63,7 @@ For correct heap behaviour, the user should provide a correct comparison functon
 - **Comparison**: it should follow standard C comparison functions such as `strcmp`, it returns the difference between the two elements as an integer:
   - **< 0**: el1 is smaller than el2
   - **== 0**: el1 is equal to el2
-  - **< 0**: el1 is greater than el2
+  - **> 0**: el1 is greater than el2
 
 ### Element printing function
 So that `pretty_print_heap` correctly prints the heap, the `print_data` function should respect the following rules:
@@ -132,10 +132,10 @@ Output
 ```
 
 ## Improvements
-- []**Dynamic Resizing**
-- []**Thread Safety**
-- []**More Utility Functions**
-- []**Custom Allocation/Deallocation**
+- [ ] **Dynamic Resizing**
+- [ ] **Thread Safety**
+- [ ] **More Utility Functions**
+- [ ] **Custom Allocation/Deallocation**
 - etc...
 
 # Resources
