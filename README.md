@@ -1,6 +1,6 @@
 # Heap
 
-Heaps are a tree-based data structure that optimizes the retrieval of specific elements, it satisfies two necessary conditions:
+Heaps are tree-based data structure that optimize the retrieval of specific elements, it satisfies two necessary conditions:
 - All levels must be filled from left to right, and they should all be fully filled except for the last level.
 - Each child should fulfil the heap property relative to its parent.
 
@@ -17,10 +17,10 @@ When storing the heap as a 0-indexed array, the parent-child relationship is def
 This is lightweight generic heap library in C providing a flexible implementation that supports any data type through `void *` and custom comparison functions.
 
 ### Features
-- **Generic**: As long as the user provides correct input about the data they want to use it should work with any data type (primitive types, pointers, structures...).
+- **Generic**: As long as the user provides correct input about the data they want to use, it should work with any data type (primitive types, pointers, structures...).
 - **Flexible**: Easily swith between Max and Min heap by just flipping the comparison function.
 - **Visual**: To see the results in action, `pretty_print_heap` is a built-in function that provides a heap visualization.
-- **Opaque**: `s_heap` structure's internal state is encapsulated to prevent the user from shooting themselves in the foot by messing with the `s_heap` structure's internal state.
+- **Opaque**: `s_heap` structure's internal state is encapsulated to prevent the user from shooting themselves in the foot by messing with the structure's internal state.
 
 # Instuctions
 
@@ -29,7 +29,7 @@ This is lightweight generic heap library in C providing a flexible implementatio
 ```make
 make heap.a # to make static library only
 make heap.so # to make shared library only
-make #or make all # to make them both
+make #or make all to make them both
 ```
 
 ### Quick start
@@ -68,18 +68,25 @@ For correct heap behaviour, the user should provide a correct comparison functon
 ### Element printing function
 So that `pretty_print_heap` correctly prints the heap, the `print_data` function should respect the following rules:
 - **Signature**: it should respect this signature `void print_data(void *data)`
-- **Formatting**: the user can print data as they whish except that the printed string should end with a new line `\n`.
+- **Formatting**: For correct output the user can print data as they whish and the printed string should end with a new line `\n`.
 
 # Usage Example
 
 ```C
-#include "../includes/heap.h"
+#include "./includes/heap.h"
 #include <time.h>
 
+// This produces a max-heap
 int	nb_cmp(void *x, void *y)
 {
 	return (*(int *)x - *(int *)y);
 }
+
+// To produce a min-heap just flip the operands or multiply the difference by -1
+// int	nb_cmp(void *x, void *y)
+// {
+// 	return -(*(int *)x - *(int *)y); # or: (*(int *)y - *(int *)x)
+// }
 
 void	print_nb(void *x)
 {
