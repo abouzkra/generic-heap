@@ -199,11 +199,11 @@ void	pretty_print_heap(
 
 	if (idx >= q->count)
 		return ;
-	ft_putstr(prefix);
+	printf("%s", prefix);
 	if (idx % 2 == 1 && idx != 0)
-		ft_putstr("├──── ");
+		printf("├──── ");
 	else if (idx != 0 && idx % 2 == 0)
-		ft_putstr("└──── ");
+		printf("└──── ");
 	print_data((char *)q->data + idx * q->width);
 	prepare_prefix(prefix, new_prefix, idx % 2 == 1);
 	pretty_print_heap(q, idx * 2 + 1, depth + 1, new_prefix, print_data);

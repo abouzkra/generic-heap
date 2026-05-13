@@ -18,7 +18,6 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
-void	ft_putstr(char *s);
 void	ft_swap(char *tmp, void *p1, void *p2, size_t width);
 
 #endif

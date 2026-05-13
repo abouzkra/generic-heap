@@ -4,9 +4,9 @@ LDFLAGS = -shared
 NAME = heap
 SRCS = ./src/ft_memmove.c \
 	   ./src/ft_memset.c  \
-	   ./src/ft_putstr.c  \
 	   ./src/ft_swap.c    \
 	   ./src/heap.c
+
 STATIC_LIB = $(NAME).a
 SHARED_LIB = $(NAME).so
 
